@@ -225,15 +225,29 @@ void Edge_filter(PGMImage& image) {
     }
 }
 
+std::string extractFileName(const std::string& path) {
+    size_t pos = path.find_last_of("/\\");
+    if (pos == std::string::npos)
+        return path;
+    return path.substr(pos + 1);
+}
+
 int main(int argc, char **argv) {
     if (argc != 3) {
-        std::cerr << "Uso: " << argv[0] << " <archivo_entrada.pgm>" << " <nombre_filtro" << std::endl;
+        std::cerr << "Uso: " << argv[0] << " <archivo_entrada.pgm>" << " <nombre_filtro>" << std::endl;
         return 1;
     }
 
     std::string inputFilename = argv[1];
     std::string filterName = argv[2];
-    std::string outputFilename = "output_" + filterName + "_" + inputFilename;
+
+    std::string baseName = extractFileName(inputFilename);
+    std::string outputDir = ".";
+    if (!inputFilename.empty() && inputFilename[0] == '/') {
+    outputDir = "/output"; // Para el uso en Docker
+    }
+
+    std::string outputFilename = outputDir + "/output_" + filterName + "_" + baseName;
 
     if (inputFilename.size() < 4 || inputFilename.substr(inputFilename.size() - 4) != ".pgm") {
     std::cerr << "Error: El archivo debe ser .pgm" << std::endl;
@@ -261,7 +275,7 @@ int main(int argc, char **argv) {
     } else if (filterName == "edge") {
         Edge_filter(image);
     } else {
-        std::cerr << "Error: Filtro no válido. Opciones: invert, blur, gaussian3, gaussian5, sharpen, unsharp" << std::endl;
+        std::cerr << "Error: Filtro no valido. Opciones: invert, blur, gaussian3, gaussian5, sharpen, unsharp, edge" << std::endl;
         return 1;
     }
 
