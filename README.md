@@ -67,7 +67,7 @@ ademas no olvides el "." que es necesario)
 luego en imagen.pgm debes escribir el nombre de la imagen que vas a testear sin ningun extra como el .\ que autocompleta el sistema al usar la tecla tab
 , como ejemplo de las imagenes que se incluyen en el zip: "baboon.ascii.pgm"; por ultimo, en filtro solo especifica el filtro que deseas usar, las 
 opciones son: invert, blur, gaussian3, gaussian5, sharpen, unsharp, edge) -> el ejemplo completo se veria tal que:
->docker run --rm -v "C:\Users\jujo1\Music\ProgCPP_Proyecto_Final:/output" pgm_filters /output/baboon.ascii.pgm edge<
+>docker run --rm -v "C:\Users\jujo1\Music\ProgCPP_Proyecto_Final:/output" pgm_filters /output/baboon.ascii.pgm edge
 
 - Luego de esto ya deberias ver el mensaje que confirma la creacion de la imagen con el filtro y ademas verla en tu carpeta del proyecto
 
