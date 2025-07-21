@@ -55,19 +55,19 @@ Aqui puedes ignorar los archivos de la parte de Apptainer ( pgm_filters.def y pg
 - Luego abre un bash ubicado en tu carpeta y debes ejecutar los siguientes comandos (puedes copiar y pegar pero ten en cuenta que debes completar las
 partes como se te indica):
 
-- docker build -t <<nombre que quieras para la imagen de docker>> .   
+- docker build -t <nombre que quieras para la imagen de docker> .   
 
-(Aqui puedes usar como ejemplo el nombre: "pgm_filters", y las << >> no deben ir solo especifican donde y que debes escribir, 
+(Aqui puedes usar como ejemplo el nombre: "pgm_filters", y las < > no deben ir solo especifican donde y que debes escribir, 
 ademas no olvides el "." que es necesario)
 
-- docker run --rm -v "<<Tu ruta interna de la carpeta de tu proyecto>>:/output" <<nombre que pusiste a la imagen de docker>> /output/<<imagen.pgm>> <<filtro>> 
+- docker run --rm -v "<Tu ruta interna de la carpeta de tu proyecto>:/output" <nombre que pusiste a la imagen de docker> /output/<imagen.pgm> <filtro> 
 
 (La ruta interna la obtienes desde tu explorador de archivos y como ejemplo te dejo la que un miembro del grupo ha usado: 
 "C:\Users\jujo1\Music\ProgCPP_Proyecto_Final"; continuando con el nombre de la imagen, sera el mismo que usaste en el comando build: "pgm_filters";
 luego en imagen.pgm debes escribir el nombre de la imagen que vas a testear sin ningun extra como el .\ que autocompleta el sistema al usar la tecla tab
 , como ejemplo de las imagenes que se incluyen en el zip: "baboon.ascii.pgm"; por ultimo, en filtro solo especifica el filtro que deseas usar, las 
 opciones son: invert, blur, gaussian3, gaussian5, sharpen, unsharp, edge) -> el ejemplo completo se veria tal que:
-<<docker run --rm -v "C:\Users\jujo1\Music\ProgCPP_Proyecto_Final:/output" pgm_filters /output/baboon.ascii.pgm edge>>
+<docker run --rm -v "C:\Users\jujo1\Music\ProgCPP_Proyecto_Final:/output" pgm_filters /output/baboon.ascii.pgm edge>
 
 - Luego de esto ya deberias ver el mensaje que confirma la creacion de la imagen con el filtro y ademas verla en tu carpeta del proyecto
 
@@ -76,6 +76,6 @@ opciones son: invert, blur, gaussian3, gaussian5, sharpen, unsharp, edge) -> el 
 # Imagenes .pgm incluidas para correr el programa tanto en Apptainer como en Docker
 (ascii se refiere al formato P2 y las simplemente .pgm formato P5)
  apollonian_gasket.ascii.pgm, baboon.ascii.pgm, balloons.ascii.pgm, f14.ascii.pgm, bird.pgm, coins.pgm, field.pgm
- 
+
 # Enlace al video de youtube
  https://www.youtube.com/watch?v=d9R_NHT-S6o
