@@ -84,4 +84,7 @@ opciones son: invert, blur, gaussian3, gaussian5, sharpen, unsharp, edge) -> el 
  bird.pgm
  coins.pgm
  field.pgm
-   
+
+
+## Enlace al video de youtube
+ https://www.youtube.com/watch?v=d9R_NHT-S6o
